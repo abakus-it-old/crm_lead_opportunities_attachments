@@ -1,16 +1,14 @@
 {
-    'name': "Attachments on opportunities.",
+    'name': "AbAKUS CRM Opportunities improvements",
     'version': '1.0',
     'depends': ['crm'],
-    'author': "Bernard DELHEZ, AbAKUS it-solutions SARL",
+    'author': "Valentin THIRION, Bernard DELHEZ, AbAKUS it-solutions SARL",
     'website': "http://www.abakusitsolutions.eu",
-    'category': 'Contracts',
+    'category': 'CRM',
     'description': """
-    Adds 2 fields for saving proposal and other attachments inside Odoo opportunities.
-
-	It creates 2 news tabs in the opportunities form and allow in edit mode to add all kind of files to the opportunities.
-
-    This module has been developed by Bernard Delhez, intern @ AbAKUS it-solutions, under the control of Valentin Thirion.
+    This modules adds the following to the CRM opportunity form:
+    - planned periodic value + period + yearly total
+    - 2 attachement fields for proposals and attachments
     """,
     'data': ['crm_lead_view.xml',],
     'demo': [],
