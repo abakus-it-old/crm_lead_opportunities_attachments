@@ -11,7 +11,7 @@
                         <field name="planned_revenue_periodically" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency'}"/>
                         <field name="planned_revenue_period" class="oe_inline" />
                         <field name="planned_revenue_yearly" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency'}"/>
-                        <field name="planned_revenue_total_first_year" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                        <field name="planned_revenue_fixed" widget="monetary" options="{'currency_field': 'company_currency'}"/>
                 </field>
 
                 <!-- Attachments -->

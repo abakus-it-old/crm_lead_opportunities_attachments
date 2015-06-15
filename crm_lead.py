@@ -10,6 +10,8 @@ class Lead(models.Model):
     planned_revenue_period = fields.Selection([('daily', 'Daily'), ('monthly', 'Monthly'), ('yearly', 'Yearly')], default='monthly')
     planned_revenue_yearly = fields.Float(string="Yearly periodical revenue", compute='_compute_revenue_yearly')
 
+    planned_revenue_fixed = fields.Float(string="Planned FIXED revenue")
+
     @api.depends('planned_revenue_periodically', 'planned_revenue_period')
     def _compute_revenue_yearly(self):
         for record in self:
@@ -19,9 +21,8 @@ class Lead(models.Model):
                 record.planned_revenue_yearly = 12 * record.planned_revenue_periodically
             if (record.planned_revenue_period == 'yearly'):
                 record.planned_revenue_yearly = record.planned_revenue_periodically
-
-    planned_revenue_total_first_year = fields.Float(compute='_compute_revenue_total_first_year')
-    @api.depends('planned_revenue_yearly', 'planned_revenue')
+            record.planned_revenue = record.planned_revenue_yearly + record.planned_revenue_fixed
+    
+    @api.onchange('planned_revenue_fixed')
     def _compute_revenue_total_first_year(self):
-        for record in self:
-            record.planned_revenue_total_first_year = record.planned_revenue_yearly + record.planned_revenue
+        self.planned_revenue = self.planned_revenue_fixed + self.planned_revenue_yearly
