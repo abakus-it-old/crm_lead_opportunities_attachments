@@ -12,6 +12,8 @@ class Lead(models.Model):
 
     planned_revenue_fixed = fields.Float(string="Planned FIXED revenue")
 
+    panned_margin = fields.Float(string="Planned margin")
+
     @api.depends('planned_revenue_periodically', 'planned_revenue_period')
     def _compute_revenue_yearly(self):
         for record in self:
