@@ -16,14 +16,14 @@
                 </field>
 
                 <!-- Attachments -->
-				<page string="Lead" position="after">
-                    <page string="Proposals">
-							<field name="proposals_attachments_ids" widget="many2many_binary" string="Attach a proposal file"/>
-					</page>
-					<page string="Attachments">
-							<field name="other_attachments_ids" widget="many2many_binary" string="Attach a file"/>
-					</page>
-				</page>
+		<xpath expr="//page" position="after">
+                	<page string="Proposals">
+				<field name="proposals_attachments_ids" widget="many2many_binary" string="Attach a proposal file"/>
+			</page>
+			<page string="Attachments">
+				<field name="other_attachments_ids" widget="many2many_binary" string="Attach a file"/>
+			</page>
+		</xpath>
             </field>
         </record>
 	</data>
